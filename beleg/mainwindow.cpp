@@ -34,18 +34,17 @@ MainWindow::MainWindow(QWidget *parent)
             QTableWidget *media_table = ui->media_table;
             Medium* new_medium;
             if (type_input->currentText() == "Buch")
-                new_medium = new Book(title_input->text(), author_input->text(), type_input->currentText(), QString(""));
+                new_medium = new Book(title_input->text(), author_input->text());
             else if (type_input->currentText() == "CD")
-                new_medium = new CD(title_input->text(), author_input->text(), type_input->currentText(), QString(""));
+                new_medium = new CD(title_input->text(), author_input->text());
             else if (type_input->currentText() == "DVD")
-                new_medium = new DVD(title_input->text(), author_input->text(), type_input->currentText(), QString(""));
+                new_medium = new DVD(title_input->text(), author_input->text());
             abbrButtonClicked();
             mediaList.append(new_medium);
             media_table->setRowCount(mediaList.size());
             displayMedium(new_medium, media_table->rowCount()-1);
         } else {
             QLabel *warning_media = ui->warning_media;
-            warning_media->setText("lol");
             warning_media->setVisible(true);
         }
     });
@@ -525,16 +524,16 @@ void MainWindow::loadMediaListFromFile()
         while (!in.atEnd()) {
             QString title = in.readLine();
             QString author = in.readLine();
-            QString type = in.readLine();
+            int type = in.readLine();
             QString borrower = in.readLine();
 
             Medium* medium;
-            if (type == QString("Buch"))
-                medium = new Book(title, author, type, QString(""));
-            else if (type == QString("CD"))
-                medium = new CD(title, author, type, QString(""));
-            else if (type == QString("DVD"))
-                medium = new DVD(title, author, type, QString(""));
+            if (medium->getType() == 0)
+                medium = new Book(title, author);
+            else if (medium->getType() == 1)
+                medium = new CD(title, author);
+            else if (medium->getType() == 2)
+                medium = new DVD(title, author);
             mediaList.append(medium);
         }
         file.close();
@@ -553,7 +552,7 @@ void MainWindow::loadPersonListFromFile()
             QDate birthday = QDate::fromString(birthdayStr, "dd.MM.yyyy");
             QChar gender = in.readLine().at(0);
 
-            Person* person = new Person(firstname, surname, birthday, gender); // Neues Person-Objekt erstellen
+            Person* person = new Person(firstname, surname, birthday, gender);
             personList.append(person);
         }
         file.close();

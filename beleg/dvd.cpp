@@ -1,5 +1,12 @@
 #include "dvd.h"
 
-DVD::DVD(QString title, QString author):Medium(title, author) {
-    type = "DVD";
-};
+DVD::getType() {
+    return 2;
+}
+
+Book::printMedium() {
+    out << medium->getTitle() << '\n';
+    out << medium.getAuthor() << '\n';
+    out << "0" << '\n';
+    out << medium->getBorrower() << '\n';
+}

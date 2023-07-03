@@ -3,17 +3,13 @@
 #include "medium.h"
 
 Medium::Medium() {
-    title = author = type = borrower = QString("");
+    title = author = borrower = QString("");
 }
 
 Medium::Medium(QString title, QString author) {
     this->title = title;
     this->author = author;
     this->borrower = QString("");
-}
-
-void Medium::printMedium() {
-    qDebug() << title << author << type << borrower;
 }
 
 // Getter

@@ -495,11 +495,9 @@ void MainWindow::saveMediaListToFile()
         QTextStream out(&file);
         sortMedia();
         for (Medium* medium : mediaList) {
-            printMedium(medium);
+            medium->print();
         }
         file.close();
-    } else {
-        qDebug() << "Fehler beim Speichern";
     }
 }
 
@@ -516,8 +514,6 @@ void MainWindow::savePersonListToFile()
             out << person->getGender() << '\n';
         }
         file.close();
-    } else {
-        qDebug() << "Fehler beim Speichern";
     }
 }
 
@@ -542,8 +538,6 @@ void MainWindow::loadMediaListFromFile()
             mediaList.append(medium);
         }
         file.close();
-    } else {
-        qDebug() << "Fehler beim Laden";
     }
 }
 
@@ -563,7 +557,5 @@ void MainWindow::loadPersonListFromFile()
             personList.append(person);
         }
         file.close();
-    } else {
-        qDebug() << "Fehler beim Laden";
     }
 }

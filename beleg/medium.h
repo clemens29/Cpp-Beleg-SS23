@@ -20,7 +20,7 @@ public:
     Medium();
     Medium(QString title, QString author);
 
-    // getter & setter
+    // getter & setterdshsd
     void setTitle(QString title);
     void setAuthor(QString author);
     void setBorrower(QString borrower);

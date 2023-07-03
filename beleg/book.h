@@ -5,8 +5,9 @@
 class Book : public Medium {
 public:
     Book():Medium() {};
-    Book(QString title, QString author, QString type, QString borrower):Medium(title, author, type, borrower) {};
+    Book(QString title, QString author):Medium(title, author) {};
 
+    QString getType();
     QString printMedium();
 };
 

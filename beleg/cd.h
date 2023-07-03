@@ -5,8 +5,9 @@
 class CD : public Medium{
 public:
     CD():Medium() {};
-    CD(QString title, QString author, QString type, QString borrower):Medium(title, author, type, borrower) {};
+    CD(QString title, QString author):Medium(title, author) {};
 
+    QString getType();
     QString printMedium();
 };
 

@@ -1,12 +1,11 @@
 #include "cd.h"
 
-DVD::getType() {
-    return 1;
+using namespace std;
+
+QString CD::getType() {
+    return "CD";
 }
 
-Book::printMedium() {
-    out << medium->getTitle() << '\n';
-    out << medium.getAuthor() << '\n';
-    out << "1" << '\n';
-    out << medium->getBorrower() << '\n';
+QString CD::printMedium() {
+    return this->getTitle() + '\n' + this->getAuthor() + '\n' + "1" + '\n' + this->getBorrower() + '\n';
 }

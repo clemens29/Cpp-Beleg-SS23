@@ -1,12 +1,12 @@
 #include "book.h"
+#include <iostream>
 
-DVD::getType() {
-    return 0;
+using namespace std;
+
+QString Book::getType() {
+    return "Buch";
 }
 
-Book::printMedium() {
-    out << medium->getTitle() << '\n';
-    out << medium.getAuthor() << '\n';
-    out << "0" << '\n';
-    out << medium->getBorrower() << '\n';
+QString Book::printMedium() {
+    return this->getTitle() + '\n' + this->getAuthor() + '\n' + "0" + '\n' + this->getBorrower() + '\n';
 }

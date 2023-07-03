@@ -5,8 +5,9 @@
 class DVD : public Medium{
 public:
     DVD():Medium() {};
-    DVD(QString title, QString author, QString type, QString borrower):Medium(title, author, type, borrower) {};
+    DVD(QString title, QString author):Medium(title, author) {};
 
+    QString getType();
     QString printMedium();
 };
 

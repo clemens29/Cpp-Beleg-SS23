@@ -494,7 +494,7 @@ void MainWindow::saveMediaListToFile()
         QTextStream out(&file);
         sortMedia();
         for (Medium* medium : mediaList) {
-            medium->print();
+            out << medium->printMedium();
         }
         file.close();
     }
@@ -524,16 +524,17 @@ void MainWindow::loadMediaListFromFile()
         while (!in.atEnd()) {
             QString title = in.readLine();
             QString author = in.readLine();
-            int type = in.readLine();
+            int type = in.readLine().toInt();
             QString borrower = in.readLine();
 
             Medium* medium;
-            if (medium->getType() == 0)
+            if (type == 0)
                 medium = new Book(title, author);
-            else if (medium->getType() == 1)
+            else if (type == 1)
                 medium = new CD(title, author);
-            else if (medium->getType() == 2)
+            else if (type == 2)
                 medium = new DVD(title, author);
+            medium->setBorrower(borrower);
             mediaList.append(medium);
         }
         file.close();

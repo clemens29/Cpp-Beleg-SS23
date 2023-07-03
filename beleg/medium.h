@@ -27,10 +27,10 @@ public:
 
     QString getTitle();
     QString getAuthor();
-    virtual QString getType();
+    virtual QString getType() = 0;
     QString getBorrower();
 
-    virtual QString printMedium();
+    virtual QString printMedium() = 0;
 
 };
 

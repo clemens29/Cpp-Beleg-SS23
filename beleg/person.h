@@ -30,7 +30,8 @@ public:
     QDate getBirthday();
     QChar getGender();
 
-    void printPerson();
+    // zum Speichern in der Datei
+    QString printPerson();
 };
 
 #endif // PERSON_H

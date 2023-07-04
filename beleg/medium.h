@@ -30,6 +30,7 @@ public:
     virtual QString getType() = 0;
     QString getBorrower();
 
+    // zum Speichern in der Datei
     virtual QString printMedium() = 0;
 
 };

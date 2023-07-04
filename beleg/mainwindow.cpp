@@ -24,7 +24,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-
+    // Hinzufügen eines neuen Mediums
     QDialogButtonBox *saveBox_media = ui->saveBox_media;
     QObject::connect(saveBox_media, &QDialogButtonBox::accepted, [this]() {
         QLineEdit *title_input = ui->title_input;
@@ -53,9 +53,9 @@ MainWindow::MainWindow(QWidget *parent)
         abbrButtonClicked();
     });
 
+    // Hinzufügen einer neuen Person
     QDialogButtonBox *saveBox_person = ui->saveBox_person;
     QObject::connect(saveBox_person, &QDialogButtonBox::accepted, [this]() {
-
         QLineEdit *firstname_input = ui->firstname_input;
         QLineEdit *surname_input = ui->surname_input;
         QDateEdit *birthday_input = ui->birthday_input;
@@ -84,6 +84,7 @@ MainWindow::MainWindow(QWidget *parent)
         abbrPersonButtonClicked();
     });
 
+    // Suchen nach Medium
     QDialogButtonBox *searchBox_media = ui->searchBox_media;
     QObject::connect(searchBox_media, &QDialogButtonBox::accepted, [this]() {
         QTableWidget *media_table = ui->media_table;
@@ -105,6 +106,7 @@ MainWindow::MainWindow(QWidget *parent)
         }
     });
 
+    // Suchen nach Person
     QDialogButtonBox *searchBox_person = ui->searchBox_person;
     QObject::connect(searchBox_person, &QDialogButtonBox::accepted, [this]() {
         QTableWidget* person_table = ui->person_table;
@@ -131,26 +133,23 @@ MainWindow::MainWindow(QWidget *parent)
     });
 
 
-
+    // Drücken des "Medium hinzufügen Buttons"
     QPushButton *addButton = this->findChild<QPushButton*>("addmedia");
     QObject::connect(addButton, &QPushButton::clicked, this, [this]() {
         addMediumButtonClicked();
     });
 
-
+    // Widgets initial verstecken
     QWidget *addMediaWidget = this->findChild<QWidget*>("add_media");
     addMediaWidget->setVisible(false);
 
     QLabel *warning_media = this->findChild<QLabel*>("warning_media");
     warning_media->setVisible(false);
 
-
-
-
-
     loadMediaListFromFile();
     loadPersonListFromFile();
 
+    // Anzeigen der Daten, welche aus den Dateien geladen wurden
     setupMediumTable();
     for (int i = 0; i < mediaList.size(); ++i) {
         Medium* medium = mediaList.at(i);
@@ -163,22 +162,20 @@ MainWindow::MainWindow(QWidget *parent)
         displayPerson(person, i);
     }
 
-
-    //Person
-
+    // Drücken des "Person hinzufügen" Buttons
     QPushButton *addPersonButton = this->findChild<QPushButton*>("addperson");
     QObject::connect(addPersonButton, &QPushButton::clicked, this, [this] {
         addPersonButtonClicked();
     });
 
+    // Widgets initial verstecken
     QWidget *addPersonWidget = this->findChild<QWidget*>("add_person");
     addPersonWidget->setVisible(false);
 
     QLabel *warning_person = ui->warning_person;
     warning_person->setVisible(false);
 
-
-    // Suche
+    // Widgets und Buttons für die Suche nach Medium und Person
     QWidget *search_media = ui->search_media;
     search_media->setVisible(false);
 
@@ -201,9 +198,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+// Erstellen der Tabelle für die Medien
 void MainWindow::setupMediumTable()
 {
-    // Erstelle den QTableWidget
+    
     QTableWidget* media_table = ui->media_table;
     media_table->clear();
     media_table->setRowCount(mediaList.size());
@@ -216,6 +214,7 @@ void MainWindow::setupMediumTable()
     media_table->setSortingEnabled(true);
 }
 
+// Anzeigen eines Mediums in der Tabelle
 void MainWindow::displayMedium(Medium* medium, int row)
 {
     QTableWidget* media_table = ui->media_table;
@@ -229,6 +228,7 @@ void MainWindow::displayMedium(Medium* medium, int row)
     QTableWidgetItem* borrowerItem = new QTableWidgetItem(medium->getBorrower());
     media_table->setItem(row, 3, borrowerItem);
 
+    // state button für entweder Ausleihe (wenn kein borrower) oder Rückgabe (wenn ein borrower vorhanden)
     QPushButton* state;
     if (!medium->getBorrower().isEmpty())
         state = new QPushButton("Rückgabe");
@@ -239,8 +239,10 @@ void MainWindow::displayMedium(Medium* medium, int row)
     QPushButton* deleteButton = new QPushButton("Löschen");
     media_table->setCellWidget(row, 5, deleteButton);
 
+    // Drücken des "Ausleihen" / "Rückgabe" Buttons
     connect(state, &QPushButton::clicked, [medium, state, this, row, media_table]() {
         if (!medium->getBorrower().isEmpty()) {
+            // Rückgabe
             QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Bestätigung", "Möchten Sie " + medium->getTitle() + " zurückgeben?", QMessageBox::Yes | QMessageBox::No);
             if (reply == QMessageBox::Yes) {
                 medium->setBorrower("");
@@ -250,6 +252,7 @@ void MainWindow::displayMedium(Medium* medium, int row)
                 media_table->update();
             }
         } else {
+            // Ausleihe
             // Vorname eingeben
             QString firstname = QInputDialog::getText(this, "Ausleihe", "Geben Sie den Vornamen der Person ein:");
             if (firstname.isEmpty())
@@ -282,6 +285,7 @@ void MainWindow::displayMedium(Medium* medium, int row)
         }
     });
 
+    // Löschen des Mediums
     connect(deleteButton, &QPushButton::clicked, [this, medium, row, media_table]() {
         QMessageBox::StandardButton reply = QMessageBox::question(nullptr, "Bestätigung", "Möchten Sie " + medium->getTitle() + " wirklich löschen?", QMessageBox::Yes | QMessageBox::No);
         if (reply == QMessageBox::Yes) {
@@ -293,24 +297,23 @@ void MainWindow::displayMedium(Medium* medium, int row)
     media_table->resizeColumnsToContents();
 }
 
-
+// Erstellen der Tabelle für die Personen
 void MainWindow::setupPersonTable()
 {
-    // Erstelle den QTableWidget2
     QTableWidget* person_table = ui->person_table;
     person_table->clear();
     person_table->setRowCount(personList.size());
-    person_table->setColumnCount(5); // Annahme von 3 Spalten für Titel, Autor und Typ
+    person_table->setColumnCount(5);
 
-    // Setze die Überschriften für die Spalten
+    // Überschriften für die Spalten
     QStringList headers;
     headers << "Vorname" << "Nachname" << "Geburtsdatum" << "Geschlecht" << "";
     person_table->setHorizontalHeaderLabels(headers);
 
-    // Aktiviere das Sortieren
     person_table->setSortingEnabled(true);
 }
 
+// Anzeigen einer Person in der Tabelle
 void MainWindow::displayPerson(Person* person, int row)
 {
     QTableWidget* person_table = ui->person_table;
@@ -328,6 +331,7 @@ void MainWindow::displayPerson(Person* person, int row)
     QTableWidgetItem* genderItem = new QTableWidgetItem(g);
     person_table->setItem(row, 3, genderItem);
 
+    // Löschen einer Person
     QPushButton* deleteButton = new QPushButton("Löschen");
     person_table->setCellWidget(row, 4, deleteButton);
 
@@ -507,10 +511,7 @@ void MainWindow::savePersonListToFile()
         QTextStream out(&file);
         sortPerson();
         for (Person* person : personList) {
-            out << person->getFirstname() << '\n';
-            out << person->getSurname() << '\n';
-            out << person->getBirthday().toString("dd.MM.yyyy") << '\n';
-            out << person->getGender() << '\n';
+            out << person->printPerson();
         }
         file.close();
     }

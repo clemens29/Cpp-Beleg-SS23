@@ -15,10 +15,6 @@ Person::Person(QString firstname, QString surname, QDate birthday, QChar gender)
     this->gender = gender;
 }
 
-void Person::printPerson() {
-    qDebug() << firstname << surname << birthday.toString("dd.mm.yyyy") << gender;
-}
-
 QString Person::getFirstname() {
     return firstname;
 }
@@ -49,4 +45,8 @@ void Person::setBirthday(QDate birthday) {
 
 void Person::setGender(QChar gender) {
     this->gender = gender;
+}
+
+QString Person::printPerson() {
+    return this->getFirstname() + '\n' + this->getSurname() + '\n' + this->getBirthday().toString("dd.MM.yyyy") + '\n' + this->getGender() + '\n';
 }

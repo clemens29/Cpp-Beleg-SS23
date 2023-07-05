@@ -5,11 +5,11 @@ Das Programm wurde mithilfe von Qt Creator 10.0.1 erstellt mit der Version Qt 6.
 Alle Dateien, welche zum build nötig waren, wurden von Qt Creater initial beim Aufbau des Projektes erstellt.
 
 <h2>Aufrufen der Testdaten</h2>
-cd build
+cd build <br>
 vi Medialist.txt / Personlist.txt
 
 <h2>Programmbuild</h2>
-cd build
-make beleg
+cd build <br>
+make beleg <br>
 ./beleg
 

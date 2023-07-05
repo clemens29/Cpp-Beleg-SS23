@@ -1,3 +1,5 @@
+// Clemens Näther, 53035, 22/041/62
+
 #ifndef MEDIUM_H
 #define MEDIUM_H
 
@@ -32,7 +34,6 @@ public:
 
     // zum Speichern in der Datei
     virtual QString printMedium() = 0;
-
 };
 
 #endif // MEDIUM_H

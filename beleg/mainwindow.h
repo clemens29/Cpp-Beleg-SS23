@@ -1,3 +1,5 @@
+// Clemens Näther, 53035, 22/041/62
+
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
@@ -8,7 +10,10 @@
 #include "person.h"
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui
+{
+    class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow
@@ -21,8 +26,8 @@ public:
     void saveButtonClicked();
     void setupMediumTable();
     void setupPersonTable();
-    void displayMedium(Medium* medium, int row);
-    void displayPerson(Person* person, int row);
+    void displayMedium(Medium *medium, int row);
+    void displayPerson(Person *person, int row);
     void abbrButtonClicked();
     void abbrPersonButtonClicked();
     void addMediumButtonClicked();
@@ -37,12 +42,12 @@ public:
     void loadMediaListFromFile();
     void loadPersonListFromFile();
 
-    friend QDataStream& operator>>(QDataStream& in, QList<Medium*>& mediaList);
+    friend QDataStream &operator>>(QDataStream &in, QList<Medium *> &mediaList);
 
 private:
     Ui::MainWindow *ui;
     QStandardItemModel *model;
-    QList<Medium*> mediaList;
-    QList<Person*> personList;
+    QList<Medium *> mediaList;
+    QList<Person *> personList;
 };
 #endif // MAINWINDOW_H

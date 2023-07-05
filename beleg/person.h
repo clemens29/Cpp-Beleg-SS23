@@ -1,3 +1,5 @@
+// Clemens Näther, 53035, 22/041/62
+
 #ifndef PERSON_H
 #define PERSON_H
 
@@ -8,7 +10,8 @@
 #include <QComboBox>
 #include <QDate>
 
-class Person {
+class Person
+{
 private:
     QString firstname;
     QString surname;

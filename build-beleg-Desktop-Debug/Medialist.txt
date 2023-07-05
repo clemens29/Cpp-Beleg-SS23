@@ -1,79 +1,79 @@
 Die Verwandlung
 Franz Kafka
-Buch
+0
 
 The Dark Side of the Moon
 Pink Floyd
-CD
+1
 
 Blade Runner
 Ridley Scott
-DVD
+2
 
 1984
 George Orwell
-Buch
+0
 
 Abbey Road
 The Beatles
-CD
+1
 
 Der Pate
 Francis Ford Coppola
-DVD
+2
 
 Der Name der Rose
 Umberto Eco
-Buch
+0
 
 Thriller
 Michael Jackson
-CD
+1
 
 Pulp Fiction
 Quentin Tarantino
-DVD
+2
 
 Harry Potter und der Stein der Weisen
 J.K. Rowling
-Buch
+0
 
 Sgt. Pepper's Lonely Hearts Club Band
 The Beatles
-CD
+1
 
 Der Herr der Ringe: Die Rückkehr des Königs
 Peter Jackson
-DVD
+2
 
 Die Bibel
 verschiedene Autoren
-Buch
+0
 
 Rumours
 Fleetwood Mac
-CD
+1
 
 Star Wars: Episode IV - Eine neue Hoffnung
 George Lucas
-DVD
+2
 
 Der kleine Prinz
 Antoine de Saint-Exupéry
-Buch
+0
 
 The Wall
 Pink Floyd
-CD
+1
 
 The Shawshank Redemption
 Frank Darabont
-DVD
+2
 
 Der große Gatsby
 F. Scott Fitzgerald
-Buch
+0
 
-Abbey Road
-The Beatles
-CD
+Altbau
+01099
+1

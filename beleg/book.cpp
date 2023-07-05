@@ -1,3 +1,5 @@
+// Clemens Näther, 53035, 22/041/62
+
 #include "book.h"
 #include <iostream>
 

@@ -1,15 +1,3 @@
-Die Verwandlung
-Franz Kafka
-0
-
-The Dark Side of the Moon
-Pink Floyd
-1
-
-Blade Runner
-Ridley Scott
-2
-
 1984
 George Orwell
 0
@@ -18,51 +6,63 @@ Abbey Road
 The Beatles
 1
 
-Der Pate
-Francis Ford Coppola
-2
-
-Der Name der Rose
-Umberto Eco
-0
-
-Thriller
-Michael Jackson
+Altbau
+01099
 1
 
-Pulp Fiction
-Quentin Tarantino
+Blade Runner
+Ridley Scott
 2
 
-Harry Potter und der Stein der Weisen
-J.K. Rowling
+Der große Gatsby
+F. Scott Fitzgerald
 0
-
-Sgt. Pepper's Lonely Hearts Club Band
-The Beatles
-1
 
 Der Herr der Ringe: Die Rückkehr des Königs
 Peter Jackson
-2
-
-Die Bibel
-verschiedene Autoren
-0
-
-Rumours
-Fleetwood Mac
-1
-
-Star Wars: Episode IV - Eine neue Hoffnung
-George Lucas
 2
 
 Der kleine Prinz
 Antoine de Saint-Exupéry
 0
 
-The Wall
+Der Name der Rose
+Umberto Eco
+0
+
+Der Pate
+Francis Ford Coppola
+2
+
+Die Bibel
+verschiedene Autoren
+0
+
+Die Verwandlung
+Franz Kafka
+0
+
+Harry Potter und der Stein der Weisen
+J.K. Rowling
+0
+
+Pulp Fiction
+Quentin Tarantino
+2
+
+Rumours
+Fleetwood Mac
+1
+
+Sgt. Pepper's Lonely Hearts Club Band
+The Beatles
+1
+
+Star Wars: Episode IV - Eine neue Hoffnung
+George Lucas
+2
+
+The Dark Side of the Moon
 Pink Floyd
 1
 
@@ -70,10 +70,11 @@ The Shawshank Redemption
 Frank Darabont
 2
 
-Der große Gatsby
-F. Scott Fitzgerald
-0
-
-Altbau
-01099
+The Wall
+Pink Floyd
 1
+
+Thriller
+Michael Jackson
+1
+

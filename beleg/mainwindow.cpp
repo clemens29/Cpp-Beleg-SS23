@@ -12,6 +12,7 @@
 #include <QInputDialog>
 #include <QFile>
 #include <QDataStream>
+#include <QTextStream>
 #include "medium.h"
 #include "person.h"
 #include "book.h"
